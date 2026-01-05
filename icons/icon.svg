@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#58a6ff"/>
+      <stop offset="100%" style="stop-color:#388bfd"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+  <!-- Sort lines icon -->
+  <g fill="white">
+    <rect x="24" y="32" width="80" height="12" rx="6"/>
+    <rect x="24" y="58" width="56" height="12" rx="6"/>
+    <rect x="24" y="84" width="32" height="12" rx="6"/>
+  </g>
+  <!-- GitHub-style octocat silhouette hint -->
+  <circle cx="96" cy="90" r="14" fill="rgba(255,255,255,0.3)"/>
+</svg>
+

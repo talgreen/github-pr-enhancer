@@ -1,0 +1,23 @@
+{
+  "name": "github-pr-comment-sorter",
+  "version": "1.0.0",
+  "description": "A Chrome extension that sorts pull request comments on GitHub by date, author, or reactions for a better code review experience.",
+  "private": true,
+  "scripts": {
+    "generate-icons": "node scripts/generate-icons.js",
+    "lint": "echo 'Add ESLint for production'",
+    "build": "node scripts/generate-icons.js && echo 'Extension ready to load in Chrome'"
+  },
+  "keywords": [
+    "chrome-extension",
+    "github",
+    "pull-request",
+    "code-review",
+    "sorting"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "canvas": "^3.2.0"
+  }
+}

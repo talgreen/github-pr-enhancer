@@ -1,0 +1,728 @@
+/**
+ * PR Enhancer - Popup Styles
+ * Using GitHub Primer Design System tokens
+ * @see https://primer.style/
+ */
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/**
+ * Primer Design Tokens
+ * These map to GitHub's actual design system variables
+ * Fallbacks provided for extension popup context
+ */
+:root {
+  /* Canvas (Background) Colors */
+  --color-canvas-default: #ffffff;
+  --color-canvas-subtle: #f6f8fa;
+  --color-canvas-inset: #f6f8fa;
+  --color-canvas-overlay: #ffffff;
+
+  /* Foreground (Text) Colors */
+  --color-fg-default: #1f2328;
+  --color-fg-muted: #656d76;
+  --color-fg-subtle: #6e7681;
+  --color-fg-accent: #0969da;
+  --color-fg-success: #1a7f37;
+  --color-fg-danger: #d1242f;
+  --color-fg-onEmphasis: #ffffff;
+
+  /* Border Colors */
+  --color-border-default: rgba(31, 35, 40, 0.15);
+  --color-border-muted: rgba(31, 35, 40, 0.15);
+  --color-border-subtle: rgba(31, 35, 40, 0.1);
+
+  /* Accent Colors */
+  --color-accent-fg: #0969da;
+  --color-accent-emphasis: #0969da;
+  --color-accent-muted: rgba(9, 105, 218, 0.4);
+  --color-accent-subtle: rgba(9, 105, 218, 0.1);
+
+  /* Success Colors */
+  --color-success-fg: #1a7f37;
+  --color-success-emphasis: #1f883d;
+  --color-success-muted: rgba(31, 136, 61, 0.4);
+  --color-success-subtle: rgba(31, 136, 61, 0.1);
+
+  /* Danger Colors */
+  --color-danger-fg: #d1242f;
+  --color-danger-emphasis: #cf222e;
+  --color-danger-muted: rgba(207, 34, 46, 0.4);
+  --color-danger-subtle: rgba(207, 34, 46, 0.1);
+
+  /* Neutral Colors */
+  --color-neutral-emphasis: #6e7781;
+  --color-neutral-muted: rgba(110, 119, 129, 0.4);
+  --color-neutral-subtle: rgba(110, 119, 129, 0.1);
+
+  /* Button Colors */
+  --color-btn-bg: #f6f8fa;
+  --color-btn-border: rgba(31, 35, 40, 0.15);
+  --color-btn-hover-bg: #f3f4f6;
+  --color-btn-hover-border: rgba(31, 35, 40, 0.15);
+  --color-btn-active-bg: #ebecf0;
+  --color-btn-primary-bg: #1f883d;
+  --color-btn-primary-hover-bg: #1a7f37;
+
+  /* Primer Spacing Scale (4px base unit) */
+  --base-size-4: 4px;
+  --base-size-8: 8px;
+  --base-size-12: 12px;
+  --base-size-16: 16px;
+  --base-size-20: 20px;
+  --base-size-24: 24px;
+  --base-size-32: 32px;
+  --base-size-40: 40px;
+
+  /* Primer Border Radius */
+  --borderRadius-small: 3px;
+  --borderRadius-medium: 6px;
+  --borderRadius-large: 12px;
+  --borderRadius-full: 100px;
+
+  /* Primer Shadows */
+  --shadow-resting-xsmall: 0 1px 0 rgba(31, 35, 40, 0.04);
+  --shadow-resting-small: 0 1px 0 rgba(31, 35, 40, 0.04), 0 1px 3px rgba(31, 35, 40, 0.12);
+  --shadow-resting-medium: 0 3px 6px rgba(140, 149, 159, 0.15);
+  --shadow-floating-small: 0 0 0 1px rgba(31, 35, 40, 0.04), 0 3px 8px rgba(31, 35, 40, 0.15);
+  --shadow-floating-medium: 0 8px 24px rgba(140, 149, 159, 0.2);
+  --shadow-floating-large: 0 12px 28px rgba(140, 149, 159, 0.3);
+
+  /* Primer Typography */
+  --fontStack-system: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  --fontStack-monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+  --text-body-size-small: 12px;
+  --text-body-size-medium: 14px;
+  --text-body-size-large: 16px;
+  --text-title-size-small: 14px;
+  --text-title-size-medium: 16px;
+  --text-body-lineHeight: 1.5;
+  --fontWeight-normal: 400;
+  --fontWeight-medium: 500;
+  --fontWeight-semibold: 600;
+
+  /* Animation Durations (Primer) */
+  --duration-fast: 80ms;
+  --duration-medium: 160ms;
+  --duration-slow: 320ms;
+  --easing-easeInOut: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Mode Variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-canvas-default: #0d1117;
+    --color-canvas-subtle: #161b22;
+    --color-canvas-inset: #010409;
+    --color-canvas-overlay: #161b22;
+
+    --color-fg-default: #e6edf3;
+    --color-fg-muted: #8d96a0;
+    --color-fg-subtle: #6e7681;
+    --color-fg-accent: #58a6ff;
+    --color-fg-success: #3fb950;
+    --color-fg-danger: #f85149;
+    --color-fg-onEmphasis: #ffffff;
+
+    --color-border-default: #30363d;
+    --color-border-muted: #21262d;
+    --color-border-subtle: rgba(240, 246, 252, 0.1);
+
+    --color-accent-fg: #58a6ff;
+    --color-accent-emphasis: #1f6feb;
+    --color-accent-muted: rgba(56, 139, 253, 0.4);
+    --color-accent-subtle: rgba(56, 139, 253, 0.1);
+
+    --color-success-fg: #3fb950;
+    --color-success-emphasis: #238636;
+    --color-success-muted: rgba(46, 160, 67, 0.4);
+    --color-success-subtle: rgba(46, 160, 67, 0.15);
+
+    --color-danger-fg: #f85149;
+    --color-danger-emphasis: #da3633;
+    --color-danger-muted: rgba(248, 81, 73, 0.4);
+    --color-danger-subtle: rgba(248, 81, 73, 0.15);
+
+    --color-neutral-emphasis: #6e7681;
+    --color-neutral-muted: rgba(110, 119, 129, 0.4);
+    --color-neutral-subtle: rgba(110, 119, 129, 0.1);
+
+    --color-btn-bg: #21262d;
+    --color-btn-border: #30363d;
+    --color-btn-hover-bg: #30363d;
+    --color-btn-hover-border: #8b949e;
+    --color-btn-active-bg: #282e33;
+    --color-btn-primary-bg: #238636;
+    --color-btn-primary-hover-bg: #2ea043;
+
+    --shadow-resting-small: 0 0 transparent;
+    --shadow-floating-small: 0 0 0 1px #30363d, 0 16px 32px rgba(1, 4, 9, 0.85);
+    --shadow-floating-medium: 0 0 0 1px #30363d, 0 8px 24px rgba(1, 4, 9, 0.65);
+    --shadow-floating-large: 0 0 0 1px #30363d, 0 12px 48px rgba(1, 4, 9, 0.8);
+  }
+}
+
+/* Base Body Styles */
+body {
+  width: 320px;
+  font-family: var(--fontStack-system);
+  font-size: var(--text-body-size-medium);
+  line-height: var(--text-body-lineHeight);
+  color: var(--color-fg-default);
+  background: var(--color-canvas-default);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Popup Container - Primer Box Pattern */
+.popup-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/* ============================================
+   HEADER - Primer PageHeader Pattern
+   ============================================ */
+.popup-header {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-12);
+  padding: var(--base-size-16);
+  background: var(--color-canvas-subtle);
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--base-size-40);
+  height: var(--base-size-40);
+  background: var(--color-accent-emphasis);
+  border-radius: var(--borderRadius-medium);
+  color: var(--color-fg-onEmphasis);
+  box-shadow: var(--shadow-resting-small);
+}
+
+.logo svg {
+  width: var(--base-size-24);
+  height: var(--base-size-24);
+}
+
+.title-group {
+  flex: 1;
+  min-width: 0;
+}
+
+.title-group h1 {
+  font-size: var(--text-title-size-medium);
+  font-weight: var(--fontWeight-semibold);
+  color: var(--color-fg-default);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: var(--text-body-size-small);
+  color: var(--color-fg-muted);
+  margin-top: 2px;
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+.popup-main {
+  flex: 1;
+  padding: var(--base-size-16);
+}
+
+/* Status Message - Primer Flash/Blankslate Pattern */
+.status-message {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-8);
+  padding: var(--base-size-12);
+  background: var(--color-canvas-subtle);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--borderRadius-medium);
+  color: var(--color-fg-muted);
+  font-size: var(--text-body-size-small);
+}
+
+.status-message svg {
+  flex-shrink: 0;
+  width: var(--base-size-16);
+  height: var(--base-size-16);
+  color: var(--color-accent-fg);
+}
+
+.status-message[hidden] {
+  display: none;
+}
+
+/* Sort Controls */
+.sort-controls[hidden] {
+  display: none;
+}
+
+.section-label {
+  display: block;
+  font-size: 11px;
+  font-weight: var(--fontWeight-semibold);
+  color: var(--color-fg-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--base-size-12);
+}
+
+.sort-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--base-size-8);
+}
+
+/* ============================================
+   SORT BUTTON - Primer ActionList Pattern
+   ============================================ */
+.sort-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-12);
+  width: 100%;
+  padding: var(--base-size-12);
+  background: var(--color-canvas-subtle);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--borderRadius-medium);
+  cursor: pointer;
+  text-align: left;
+  transition: background-color var(--duration-fast) var(--easing-easeInOut),
+              border-color var(--duration-fast) var(--easing-easeInOut),
+              box-shadow var(--duration-fast) var(--easing-easeInOut);
+  position: relative;
+  font-family: inherit;
+}
+
+.sort-btn:hover {
+  background: var(--color-btn-hover-bg);
+  border-color: var(--color-border-default);
+}
+
+.sort-btn:focus-visible {
+  outline: 2px solid var(--color-accent-fg);
+  outline-offset: -2px;
+}
+
+.sort-btn:active {
+  background: var(--color-btn-active-bg);
+}
+
+.sort-btn.active {
+  background: var(--color-success-subtle);
+  border-color: var(--color-success-emphasis);
+}
+
+.sort-btn.active .btn-icon {
+  background: var(--color-success-emphasis);
+  color: var(--color-fg-onEmphasis);
+}
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--base-size-32);
+  height: var(--base-size-32);
+  background: var(--color-neutral-subtle);
+  border-radius: var(--borderRadius-medium);
+  color: var(--color-fg-muted);
+  transition: background-color var(--duration-fast) var(--easing-easeInOut),
+              color var(--duration-fast) var(--easing-easeInOut);
+  flex-shrink: 0;
+}
+
+.btn-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.sort-btn:hover .btn-icon {
+  background: var(--color-accent-emphasis);
+  color: var(--color-fg-onEmphasis);
+}
+
+.btn-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.btn-title {
+  display: block;
+  font-size: var(--text-body-size-medium);
+  font-weight: var(--fontWeight-medium);
+  color: var(--color-fg-default);
+}
+
+.btn-desc {
+  display: block;
+  font-size: var(--text-body-size-small);
+  color: var(--color-fg-subtle);
+  margin-top: 2px;
+}
+
+/* ============================================
+   ONBOARDING - Primer Blankslate Pattern
+   ============================================ */
+.onboarding {
+  padding: var(--base-size-16);
+  background: var(--color-accent-subtle);
+  border: 1px solid var(--color-accent-muted);
+  border-radius: var(--borderRadius-medium);
+  margin-bottom: var(--base-size-16);
+}
+
+.onboarding-title {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-8);
+  font-size: var(--text-body-size-medium);
+  font-weight: var(--fontWeight-semibold);
+  color: var(--color-fg-default);
+  margin-bottom: var(--base-size-8);
+}
+
+.onboarding-title svg {
+  color: var(--color-accent-fg);
+}
+
+.onboarding-text {
+  font-size: var(--text-body-size-small);
+  color: var(--color-fg-muted);
+  margin-bottom: var(--base-size-12);
+  line-height: 1.5;
+}
+
+.onboarding-kbd {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--base-size-4);
+  font-family: var(--fontStack-monospace);
+  font-size: 11px;
+  background: var(--color-canvas-default);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--borderRadius-small);
+  box-shadow: inset 0 -1px 0 var(--color-border-default);
+}
+
+.onboarding-dismiss {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--base-size-4);
+  padding: var(--base-size-4) var(--base-size-8);
+  font-size: var(--text-body-size-small);
+  font-weight: var(--fontWeight-medium);
+  color: var(--color-accent-fg);
+  background: transparent;
+  border: none;
+  border-radius: var(--borderRadius-medium);
+  cursor: pointer;
+  transition: background-color var(--duration-fast);
+}
+
+.onboarding-dismiss:hover {
+  background: var(--color-accent-subtle);
+}
+
+.onboarding[hidden] {
+  display: none;
+}
+
+/* ============================================
+   SETTINGS SECTION
+   ============================================ */
+.settings-section {
+  padding: var(--base-size-16);
+  border-top: 1px solid var(--color-border-default);
+}
+
+.settings-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--base-size-8);
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--base-size-12);
+  padding: var(--base-size-12);
+  background: var(--color-canvas-default);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--borderRadius-medium);
+  cursor: pointer;
+  transition: background-color var(--duration-fast);
+}
+
+.setting-item:hover {
+  background: var(--color-canvas-subtle);
+}
+
+.setting-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--base-size-4);
+}
+
+.setting-title {
+  font-size: var(--text-body-size-medium);
+  font-weight: var(--fontWeight-medium);
+  color: var(--color-fg-default);
+}
+
+.setting-desc {
+  font-size: var(--text-body-size-small);
+  color: var(--color-fg-muted);
+  line-height: 1.4;
+}
+
+/* Toggle Switch - Primer Pattern */
+.toggle-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  display: block;
+  width: 40px;
+  height: 24px;
+  background: var(--color-switch-track-bg);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--borderRadius-full);
+  position: relative;
+  transition: background-color var(--duration-medium), border-color var(--duration-medium);
+  cursor: pointer;
+}
+
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background: var(--color-canvas-default);
+  border-radius: 50%;
+  transition: transform var(--duration-medium);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-input:checked + .toggle-slider {
+  background: var(--color-accent-emphasis);
+  border-color: var(--color-accent-emphasis);
+}
+
+.toggle-input:checked + .toggle-slider::before {
+  transform: translateX(16px);
+}
+
+.toggle-input:focus-visible + .toggle-slider {
+  outline: 2px solid var(--color-accent-fg);
+  outline-offset: 2px;
+}
+
+.toggle-input:disabled + .toggle-slider {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ============================================
+   FOOTER - Primer ActionBar Pattern
+   ============================================ */
+.popup-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--base-size-12) var(--base-size-16);
+  background: var(--color-canvas-subtle);
+  border-top: 1px solid var(--color-border-default);
+}
+
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--base-size-4);
+  color: var(--color-fg-muted);
+  text-decoration: none;
+  font-size: var(--text-body-size-small);
+  transition: color var(--duration-fast);
+  border-radius: var(--borderRadius-medium);
+  padding: var(--base-size-4);
+  margin: calc(-1 * var(--base-size-4));
+}
+
+.footer-link:hover {
+  color: var(--color-accent-fg);
+}
+
+.footer-link:focus-visible {
+  outline: 2px solid var(--color-accent-fg);
+  outline-offset: 2px;
+}
+
+.footer-link svg {
+  width: var(--base-size-16);
+  height: var(--base-size-16);
+}
+
+/* Version Label - Primer Label Component */
+.version {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 var(--base-size-8);
+  height: 20px;
+  font-size: 11px;
+  font-weight: var(--fontWeight-medium);
+  font-family: var(--fontStack-monospace);
+  color: var(--color-fg-muted);
+  background: var(--color-neutral-subtle);
+  border-radius: var(--borderRadius-full);
+}
+
+/* ============================================
+   LOADING STATE - Primer Animation
+   ============================================ */
+@keyframes primer-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading {
+  animation: primer-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Loading Spinner */
+.spinner {
+  display: inline-block;
+  width: var(--base-size-16);
+  height: var(--base-size-16);
+  border: 2px solid var(--color-border-default);
+  border-top-color: var(--color-accent-fg);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
+   TOOLTIP - Primer Tooltip Component
+   ============================================ */
+.tooltip {
+  position: relative;
+}
+
+.tooltip::after {
+  content: attr(aria-label);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  padding: var(--base-size-4) var(--base-size-8);
+  font-size: 11px;
+  font-weight: var(--fontWeight-medium);
+  color: var(--color-fg-onEmphasis);
+  background: var(--color-neutral-emphasis);
+  border-radius: var(--borderRadius-medium);
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--duration-fast), visibility var(--duration-fast);
+  z-index: 100;
+  pointer-events: none;
+}
+
+.tooltip:hover::after,
+.tooltip:focus-visible::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ============================================
+   SCROLLBAR - Primer Styling
+   ============================================ */
+::-webkit-scrollbar {
+  width: var(--base-size-8);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-canvas-default);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-default);
+  border-radius: var(--base-size-4);
+  border: 2px solid var(--color-canvas-default);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-fg-muted);
+}
+
+/* ============================================
+   ERROR STATE - Primer Flash Pattern
+   ============================================ */
+.popup-error {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-8);
+  padding: var(--base-size-12);
+  margin-bottom: var(--base-size-12);
+  background: var(--color-danger-subtle);
+  border: 1px solid var(--color-danger-muted);
+  border-radius: var(--borderRadius-medium);
+  color: var(--color-danger-fg);
+  font-size: var(--text-body-size-small);
+}
+
+.popup-error svg {
+  flex-shrink: 0;
+  width: var(--base-size-16);
+  height: var(--base-size-16);
+}
+
+/* ============================================
+   SUCCESS STATE - Primer Flash Pattern
+   ============================================ */
+.popup-success {
+  display: flex;
+  align-items: center;
+  gap: var(--base-size-8);
+  padding: var(--base-size-12);
+  margin-bottom: var(--base-size-12);
+  background: var(--color-success-subtle);
+  border: 1px solid var(--color-success-muted);
+  border-radius: var(--borderRadius-medium);
+  color: var(--color-success-fg);
+  font-size: var(--text-body-size-small);
+}
